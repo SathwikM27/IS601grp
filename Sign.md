@@ -1,7 +1,7 @@
 
-| Date | Sign 1 | Sign 2 |
+| Date | Sathwik M | Sathwik V |
 |------|--------|--------|
-|      |      |          |
+| Nov 9th(Thu)   |    X  |    X      |
 |      |      |          |
 |      |      |          |
 |      |      |          |
