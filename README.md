@@ -18,3 +18,8 @@ Our persona is "Sarah"
 [Customer Journey](Businessdocx/customerjourney.md)
 
 [User Stories](Businessdocx/user-story.md)
+
+
+
+## Figma Design
+url(https://www.figma.com/file/zlQlrZqf0G2hf0Z8x71jdC/Material-3-Design-Kit-(Community)?type=design&node-id=11-1833&mode=design&t=AynlySI3OCHAORvd-0)
