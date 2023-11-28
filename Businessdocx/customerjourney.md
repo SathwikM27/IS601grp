@@ -1,14 +1,11 @@
 Here's a high-level overview of how our website can address each stage of the sales funnel:
 
 1. Awareness
-- SEO Optimization: Ensure your website is optimized for search engines to increase visibility when potential customers search for restaurants or specific cuisines in your area.
-- Social Media Integration: Utilize social media platforms to drive traffic to your website. Share engaging content like photos of dishes, special events, and customer reviews.
-- Online Advertising: Use targeted online ads to reach potential customers based on their location, interests, and online behavior.
+- SEO Optimisation to show up in searches.
+- Social media showcase of the restaurant's offerings.
 
  2. Interest
-- Attractive Web Design: Design a visually appealing website that reflects the ambiance and style of your restaurant.
-- Menu Display: Showcase your menu with high-quality images and detailed descriptions of dishes to entice visitors.
-- Content Marketing:  Share blog posts or articles about your cuisine, cooking techniques, or the origins of certain dishes to engage visitors and build interest.
+- Bold imagery on landing page that 
 
 
  3. Decision
