@@ -48,7 +48,7 @@ function ResponsiveAppBar() {
 
   return (
     
-    <AppBar position="static" sx={{ backgroundColor: '#000000' }}>
+    <AppBar position="fixed" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.9)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },  }}>
@@ -58,9 +58,9 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              sx={{ color: '#FFFFFF' }}
+              sx={{ color: 'white' }}
             >
-              {/* Here, you can insert an icon like <MenuIcon /> */}
+              <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -126,7 +126,8 @@ const MainPageContent = () => {
       backgroundRepeat: 'no-repeat', // Do not repeat the image
       backgroundPosition: 'center', // Center the background image
       height: '100vh', // Example height, adjust as needed
-      width : '100vw'
+      width : '100vw',
+      pt : 10,
     }}>
       <Grid container spacing={3}>
         {/* Content such as welcome message, dish images, and order button */}
