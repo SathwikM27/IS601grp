@@ -120,7 +120,7 @@ function ResponsiveAppBar() {
 
 const MainPageContent = () => {
   return (
-    <Container sx={{
+    <Box sx={{
       backgroundImage: `url(/images/background.png)`, // Use background image'})`,
       backgroundSize: 'cover', // Cover the entire area of the container
       backgroundRepeat: 'no-repeat', // Do not repeat the image
@@ -137,7 +137,7 @@ const MainPageContent = () => {
         </Grid>
         {/* Other content and components */}
       </Grid>
-    </Container>
+    </Box>
   );
 };
 
