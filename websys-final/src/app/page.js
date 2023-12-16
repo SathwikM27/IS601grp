@@ -15,7 +15,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
 import MenuIcon from '@mui/icons-material/Menu';
-import Link from '@mui/material/Link'
+import Link from '@mui/material/Link';
+
+
+
 
 
 const pages = [
@@ -44,7 +47,8 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
+    
+    <AppBar position="static" sx={{ backgroundColor: '#000000' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },  }}>
@@ -54,7 +58,7 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              sx={{ color: '#FFFFFF' }}
             >
               {/* Here, you can insert an icon like <MenuIcon /> */}
             </IconButton>
@@ -109,13 +113,21 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+    
   );
 }
 
 
 const MainPageContent = () => {
   return (
-    <Container>
+    <Container sx={{
+      backgroundImage: `url(/images/background.png)`, // Use background image'})`,
+      backgroundSize: 'cover', // Cover the entire area of the container
+      backgroundRepeat: 'no-repeat', // Do not repeat the image
+      backgroundPosition: 'center', // Center the background image
+      height: '100vh', // Example height, adjust as needed
+      width : '100vw'
+    }}>
       <Grid container spacing={3}>
         {/* Content such as welcome message, dish images, and order button */}
         <Grid item xs={12}>
