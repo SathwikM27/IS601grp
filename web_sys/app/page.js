@@ -158,6 +158,40 @@ const MainPageContent = () => {
   );
 };
 
+const AboutUsSection = () => {
+  return (
+    <Container maxWidth="lg" sx={{ py: 8 }}>
+      <Grid container spacing={4} alignItems="center">
+        <Grid item xs={12} sm={6}>
+          {/* Assume the image is in the public/images directory */}
+          <Box
+            component="img"
+            sx={{
+              width: '100%',
+              height: 'auto',
+              borderRadius: 2, // You can adjust the border radius as needed
+            }}
+            src="/images/about.png" // Replace with your actual image path
+            alt="Delicious Dish"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h3" component="h2" gutterBottom sx={{ color: 'secondary.main' }}>
+            About Us
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Dragons Breath Chinese Restaurant, located in Journal Square, NJ, is renowned for its
+            exceptional Chinese cuisine, excellent service, and friendly staff. This local favorite
+            emphasizes modern twists on classic dishes, with a commitment to using only high-quality,
+            fresh ingredients. It's a great choice for dining in, takeout, or delivery.
+          </Typography>
+          {/* Add the logo or any other content if needed */}
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};
+
 const HomePage = () => {
   return (
     <>
@@ -167,6 +201,7 @@ const HomePage = () => {
       </Head>
       <ResponsiveAppBar />
       <MainPageContent />
+      <AboutUsSection />
       {/* Other components like footer, etc. */}
     </>
   );
