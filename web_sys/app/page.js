@@ -23,6 +23,9 @@ import Rating from '@mui/material/Rating';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Paper from '@mui/material/Paper';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import PinterestIcon from '@mui/icons-material/Pinterest';
 
 
 
@@ -298,6 +301,43 @@ const ReviewSlider = () => {
   );
 };
 
+
+const ContactSection = () => {
+  return (
+    <Container maxWidth="lg" sx={{ py: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+      <Typography variant="h4" component="h2" gutterBottom>
+        Contact Us
+      </Typography>
+      {/* Social Media Icons */}
+      <Box sx={{ '& > :not(style)': { m: 2 } }}>
+        <IconButton color="primary" href="https://instagram.com/yourrestaurant">
+          <InstagramIcon fontSize="large" />
+        </IconButton>
+        <IconButton color="primary" href="https://facebook.com/yourrestaurant">
+          <FacebookIcon fontSize="large" />
+        </IconButton>
+        <IconButton color="primary" href="https://pinterest.com/yourrestaurant">
+          <PinterestIcon fontSize="large" />
+        </IconButton>
+      </Box>
+      {/* Address and Phone */}
+      <Box sx={{ textAlign: 'center' }}>
+        <Typography variant="body1" paragraph>
+          715 Newark Ave, Journal Square, NJ 07306
+          <br />
+          Mon - Thu: 11am - 10:30pm
+          <br />
+          Fri & Sat: 11am - 11pm
+          <br />
+          Sun: 12pm - 10pm
+          <br />
+          Phone: (551) 999-9999
+        </Typography>
+      </Box>
+    </Container>
+  );
+};
+
 const HomePage = () => {
   return (
     <>
@@ -310,6 +350,7 @@ const HomePage = () => {
       <AboutUsSection />
       <DishSlider />
       <ReviewSlider />
+      <ContactSection />
       {/* Other components like footer, etc. */}
     </>
   );
