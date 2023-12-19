@@ -1,3 +1,3 @@
 Subscribe to Our Mailing List
 ---
-Enter your email address to stay updated with our latest news and offers.
+Get a coupon for 20% of when you visit next time!

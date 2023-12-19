@@ -12,8 +12,7 @@ import Paper from '@mui/material/Paper';
 import { useTheme } from '@mui/material/styles';
 
 const ReviewSlider = ({ content }) => {
-    console.log("Type of content:", typeof content); // Debugging
-    console.log("Content:", content);
+
     const theme = useTheme();
     const settings = {
         dots: true,
