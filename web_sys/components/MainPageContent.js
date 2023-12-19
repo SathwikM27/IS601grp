@@ -27,6 +27,7 @@ const MainPageContent = ({ content }) => {
       height: '100vh',
     }}>
       <Box sx={{
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         textAlign: 'center',
         maxWidth: theme.breakpoints.values.md, // Use theme breakpoints
         margin: 'auto',
