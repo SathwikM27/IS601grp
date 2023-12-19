@@ -27,19 +27,21 @@ const MainPageContent = ({ content }) => {
       height: '100vh',
     }}>
       <Box sx={{
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
         textAlign: 'center',
-        maxWidth: theme.breakpoints.values.md, // Use theme breakpoints
+        width: '100%' ,
         margin: 'auto',
+        marginTop: 'auto',
+        borderRadius: '10px',
       }}>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} sx={{borderRadius: '10px' }} >
           <Grid item xs={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Typography 
               variant="h2" 
               gutterBottom 
               dangerouslySetInnerHTML={{ __html: title }}
               sx={{
-                color: theme.palette.primary.main, // Use primary color from theme
+                color: theme.palette.primary.main, fontFamily: 'Great Vibes', fontSize: '5rem',
               }}
             />
             <Typography 
