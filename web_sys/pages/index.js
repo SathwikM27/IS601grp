@@ -9,10 +9,13 @@ import ReviewSlider from '../components/ReviewSlider'
 import ContactSection from '@/components/ContactSection';
 import SubscribeDialog from '@/components/SubscribeDialog';
 import CookieConsent from '@/components/CookieConsent';
-
+import { useRef } from 'react';
 
 
 const YourPage = ({ mainPageContent, aboutUsContent, reviews, contactInfoMarkdown, subscribeDialogText }) => {
+    const homeRef = useRef(null);
+    const aboutUsRef = useRef(null);
+    const contactUsRef = useRef(null);
         const handleConsentAcceptance = () => {
                 // Initialize Google Analytics
                 window.dataLayer = window.dataLayer || [];
@@ -21,7 +24,7 @@ const YourPage = ({ mainPageContent, aboutUsContent, reviews, contactInfoMarkdow
                 gtag('config', 'G-912B4XCN24');
         }; // Add a closing curly brace here
         const handleConsentDecline = () => {
-                // Do something here
+                // do nothing
         };
 
     return (
@@ -29,17 +32,17 @@ const YourPage = ({ mainPageContent, aboutUsContent, reviews, contactInfoMarkdow
                 <title>Dragon's Breath Chinese</title>
                 <meta name="description" content="Dragon's Breath Chinese restaurant located in New Jersey" />
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
-                <mneta charset="utf-8" />
+                <mneta charSet="utf-8" />
                 
                 </Head>
                 <div sx={{backgroundColor: 'black'}}>  
                     <CookieConsent onAccept={handleConsentAcceptance} />
-                    <MainPageContent content={mainPageContent} />
-                    <ResponsiveAppBar />
-                    <AboutUsSection content={aboutUsContent} />
+                    <MainPageContent content={mainPageContent} ref={homeRef} />
+                    <ResponsiveAppBar refs={{ home: homeRef, aboutUs: aboutUsRef, contactUs: contactUsRef }}/>
+                    <AboutUsSection content={aboutUsContent} ref={aboutUsRef}/>
                     <DishSlider />
                     <ReviewSlider content={reviews} />
-                    <ContactSection content={contactInfoMarkdown} />
+                    <ContactSection content={contactInfoMarkdown} ref={contactUsRef}/>
                     <SubscribeDialog subscribeDialogText={subscribeDialogText} />
                     {/* ...other components... */}
             </div></>

@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import {
   AppBar, Box, Toolbar, IconButton, Menu, MenuItem,
-  Typography, Button, Container, useTheme
+  Typography, Button, Container, useTheme, useRef
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
+
 function ResponsiveAppBar() {
+  const pages = [
+    { name: 'Home', sectionId: 'home' },
+    { name: 'About Us', sectionId: 'about' },
+    { name: 'Contact', sectionId: 'contact' },
+  
+  ];
   const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  // Add or modify the sections here
-  const pages = [
-    { name: 'Home', ref: React.createRef() },
-    { name: 'About Us', ref: React.createRef() },
-    { name: 'Contact Us', ref: React.createRef() },
-    { name: 'Order', ref: React.createRef() } // Placeholder for 'Order' button
-  ];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -25,12 +25,12 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleScrollToSection = (ref) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    handleCloseNavMenu();
-  };
+};
 
   return (
     <AppBar position="fixed" sx={{ backgroundColor: theme.palette.primary.blkback }}>
@@ -64,7 +64,7 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' }, backgroundColor: theme.palette.primary.blkback }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name} onClick={() => handleScrollToSection(page.ref)}>
+                <MenuItem key={page.name} onClick={() => scrollToSection(page.sectionID)}>
                   {page.name}
                 </MenuItem>
               ))}
@@ -74,7 +74,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page.name}
-                onClick={() => handleScrollToSection(page.ref)}
+                onClick={() => scrollToSection(page.sectionID)}
                 sx={{ my: 2, color: theme.palette.primary.main, display: 'block' }}
               >
                 {page.name}

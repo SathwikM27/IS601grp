@@ -17,7 +17,7 @@ const MainPageContent = ({ content }) => {
   const subtitle = content.match(/<p>(.*?)<\/p>/)?.[1];
 
   return (
-    <Box sx={{
+    <Box id="Home" sx={{
       backgroundImage: 'url(/images/background.png)',
       padding: theme.spacing(0), // Example of using theme spacing
       color: theme.palette.text.primary,

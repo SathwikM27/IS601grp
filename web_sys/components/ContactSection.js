@@ -13,7 +13,7 @@ import { useTheme } from '@mui/material/styles';
 const ContactSection = ({ content }) => {
   const theme = useTheme();
   return (
-    <Container maxWidth="lg" sx={{ py: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+    <Container id="contact" maxWidth="lg" sx={{ py: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <Typography variant="h4" component="h2" gutterBottom>
         Contact Us
       </Typography>
