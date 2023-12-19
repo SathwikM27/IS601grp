@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -26,6 +26,8 @@ import Paper from '@mui/material/Paper';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
+
+import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Snackbar, Alert} from '@mui/material';
 
 
 
@@ -338,6 +340,84 @@ const ContactSection = () => {
   );
 };
 
+const SubscribeDialog = () => {
+  const [open, setOpen] = useState(true); // Controls the visibility of the dialog
+  const [email, setEmail] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+  const handleSubscribe = async () => {
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        setSuccessMessage('Thank you for subscribing!');
+        setOpen(false); // Close the dialog
+      } else {
+        if (response.headers.get('Content-Type')?.includes('application/json')) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'An error occurred while subscribing. Please try again.');
+        } else {
+          throw new Error('An unexpected error occurred.');
+        }
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    } finally {
+      setSnackbarOpen(true); // Show the snackbar
+    }
+  };
+  
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
+
+  return (
+    <>
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogTitle>Subscribe to Our Mailing List</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="email"
+            label="Email Address"
+            type="email"
+            fullWidth
+            variant="standard"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)}>Cancel</Button>
+          <Button onClick={handleSubscribe}>Subscribe</Button>
+        </DialogActions>
+      </Dialog>
+      <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        {successMessage ? (
+          <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
+            {successMessage}
+          </Alert>
+        ) : (
+          <Alert onClose={handleCloseSnackbar} severity="error" sx={{ width: '100%' }}>
+            {errorMessage}
+          </Alert>
+        )}
+      </Snackbar>
+    </>
+  );
+};
+
 const HomePage = () => {
   return (
     <>
@@ -351,6 +431,7 @@ const HomePage = () => {
       <DishSlider />
       <ReviewSlider />
       <ContactSection />
+      <SubscribeDialog />
       {/* Other components like footer, etc. */}
     </>
   );

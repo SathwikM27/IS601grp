@@ -8,14 +8,13 @@ export default async function handler(req, res) {
     }
   
     try {
-      const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY; // Set your API key in .env.local
-      const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID; // Set your Audience ID in .env.local
-      const SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX; // e.g. us5
+      const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
+      const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+      const SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX;
   
-      // Construct req data
       const data = {
         email_address: email,
-        status: 'subscribed', // 'subscribed' or 'pending' if you want double opt-in
+        status: 'subscribed',
       };
   
       const response = await fetch(
@@ -30,14 +29,23 @@ export default async function handler(req, res) {
         }
       );
   
-      if (!response.ok) {
-        // If Mailchimp returns an error
+      // Check if the response is ok and if the content type is JSON before trying to parse it
+      if (response.ok && response.headers.get('Content-Type')?.includes('application/json')) {
+        const responseData = await response.json();
+        // Check if Mailchimp sent back an error message in the JSON
+        if (responseData.status === 'error' || responseData.detail) {
+          throw new Error(responseData.detail || 'Error subscribing to Mailchimp');
+        }
+        return res.status(201).json({ message: 'Subscribed successfully!' });
+      } else if (response.ok) {
+        // If response is ok but not JSON, something unexpected has happened
+        throw new Error('Received an unexpected response from Mailchimp');
+      } else {
+        // If response is not ok, try to parse the error message
         const errorData = await response.json();
-        return res.status(response.status).json({ error: errorData });
+        console.error('Mailchimp error response:', errorText);
+        return res.status(response.status).json({ error: errorData.title || 'Error subscribing to Mailchimp' });
       }
-  
-      // If everything is alright
-      return res.status(201).json({ error: '' });
     } catch (error) {
       return res.status(500).json({ error: error.message || error.toString() });
     }
