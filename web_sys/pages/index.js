@@ -28,6 +28,8 @@ const YourPage = ({ mainPageContent, aboutUsContent, reviews, contactInfoMarkdow
         <><Head> 
                 <title>Dragon's Breath Chinese</title>
                 <meta name="description" content="Dragon's Breath Chinese restaurant located in New Jersey" />
+                <meta name="viewport" content="initial-scale=1, width=device-width" />
+                <mneta charset="utf-8" />
                 
                 </Head>
                 <div sx={{backgroundColor: 'black'}}>  
