@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-export async function getMarkdownContent(fileName, returnAsArray = false, returnAsObject = false) {
+export async function getMarkdownContent(fileName, returnAsArray = false, returnAsObject = false, returnAsText = false) {
   try {
     const markdownDirectory = path.join(process.cwd(), 'pages/sections');
     const fullPath = path.join(markdownDirectory, `${fileName}.md`);
@@ -41,7 +41,10 @@ export async function getMarkdownContent(fileName, returnAsArray = false, return
         // New logic for parsing key-value pairs (like contact info)
         const { data } = matter(fileContents);
         return data; // Returns an object with key-value pairs
-      }
+      } else if (returnAsText) {
+        // Logic for returning plain text content
+        return fileContents.trim();
+        }
     const matterResult = matter(fileContents);
     const processedContent = await remark().use(html).process(matterResult.content);
     return processedContent.toString();
