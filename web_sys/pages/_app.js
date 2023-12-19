@@ -1,12 +1,20 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from '../app/theme'; // Adjust the path to where your theme is defined
+import theme from '../app/theme';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <Script 
+        src={`https://www.googletagmanager.com/gtag/js?id=G-912B4XCN24`} 
+        strategy="afterInteractive"
+        async
+      />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
 
