@@ -71,8 +71,8 @@ const SubscribeDialog = ({ subscribeDialogText }) => {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setOpen(false)}>Cancel</Button>
-            <Button onClick={handleSubscribe}>Subscribe</Button>
+            <Button onClick={() => setOpen(false)} sx={{color: theme.palette.primary.blk}}>Cancel</Button>
+            <Button onClick={handleSubscribe} sx={{color: theme.palette.primary.blk}}>Subscribe</Button>
           </DialogActions>
         </Dialog>
         <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>

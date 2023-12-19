@@ -30,8 +30,8 @@ const MainPageContent = ({ content }) => {
         backgroundColor: 'rgba(0, 0, 0, 0.9)',
         textAlign: 'center',
         width: '100%' ,
-        margin: 'auto',
-        marginTop: 'auto',
+        mb: 'auto',
+        mt: 10,
         borderRadius: '10px',
       }}>
         <Grid container spacing={3} sx={{borderRadius: '10px' }} >
@@ -41,7 +41,7 @@ const MainPageContent = ({ content }) => {
               gutterBottom 
               dangerouslySetInnerHTML={{ __html: title }}
               sx={{
-                color: theme.palette.primary.main, fontFamily: 'Great Vibes', fontSize: '5rem',
+                color: theme.palette.primary.main, fontFamily: 'Rock Salt', fontSize: '5rem',
               }}
             />
             <Typography 

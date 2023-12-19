@@ -18,17 +18,17 @@ const ContactSection = ({ content }) => {
         Contact Us
       </Typography>
       <Box sx={{ '& > :not(style)': { m: 2 } }}>
-        <IconButton color="primary" href={content.instagram}>
+        <IconButton sx={{color: theme.palette.primary.blk}} href={content.instagram}>
           <InstagramIcon fontSize="large" />
         </IconButton>
-        <IconButton color="primary" href={content.facebook}>
+        <IconButton sx={{color: theme.palette.primary.blk}} href={content.facebook}>
           <FacebookIcon fontSize="large" />
         </IconButton>
-        <IconButton color="primary" href={content.pinterest}>
+        <IconButton sx={{color: theme.palette.primary.blk}} href={content.pinterest}>
           <PinterestIcon fontSize="large" />
         </IconButton>
       </Box>
-      <Box /* ... */>
+      <Box>
         <Typography variant="body1" paragraph>
           {content.address}
           <br />

@@ -1,3 +1,3 @@
 # Dragon's Breath
 
-Re-invented Chinese
+Re-inventing Chinese
