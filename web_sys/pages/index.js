@@ -13,9 +13,6 @@ import { useRef } from 'react';
 
 
 const YourPage = ({ mainPageContent, aboutUsContent, reviews, contactInfoMarkdown, subscribeDialogText }) => {
-    const homeRef = useRef(null);
-    const aboutUsRef = useRef(null);
-    const contactUsRef = useRef(null);
         const handleConsentAcceptance = () => {
                 // Initialize Google Analytics
                 window.dataLayer = window.dataLayer || [];
@@ -38,11 +35,11 @@ const YourPage = ({ mainPageContent, aboutUsContent, reviews, contactInfoMarkdow
                 <div sx={{backgroundColor: 'black'}}>  
                     <CookieConsent onAccept={handleConsentAcceptance} />
                     <MainPageContent content={mainPageContent} ref={homeRef} />
-                    <ResponsiveAppBar refs={{ home: homeRef, aboutUs: aboutUsRef, contactUs: contactUsRef }}/>
+                    <ResponsiveAppBar />
                     <AboutUsSection content={aboutUsContent} ref={aboutUsRef}/>
                     <DishSlider />
                     <ReviewSlider content={reviews} />
-                    <ContactSection content={contactInfoMarkdown} ref={contactUsRef}/>
+                    <ContactSection content={contactInfoMarkdown} />
                     <SubscribeDialog subscribeDialogText={subscribeDialogText} />
                     {/* ...other components... */}
             </div></>
