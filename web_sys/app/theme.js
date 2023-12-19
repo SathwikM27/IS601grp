@@ -1,11 +1,13 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, alpha } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
     primary: {
       // Define your primary color here
       main: '#FFFFFF',
-      
+      blk: '#000000',
+      blkback: alpha('#000000', 0.9),
+
     },
     secondary: {
       // Define your secondary color (used in your button)
