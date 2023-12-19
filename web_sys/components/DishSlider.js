@@ -17,7 +17,7 @@ const DishSlider = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    nextArrow: <IconButton size="large"><ArrowCircleRightIcon sx={{  color: theme.palette.primary.blk}} /></IconButton>,
+    nextArrow: <IconButton size="large"><ArrowCircleRightIcon sx={{ color: theme.palette.primary.blk}} /></IconButton>,
     prevArrow: <IconButton size="large" ><ArrowCircleLeftIcon sx={{ color: theme.palette.primary.blk}} /></IconButton>,
   };
 
