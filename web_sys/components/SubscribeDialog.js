@@ -16,7 +16,7 @@ const SubscribeDialog = ({ subscribeDialogText }) => {
     const [errorMessage, setErrorMessage] = useState('');
     const [snackbarOpen, setSnackbarOpen] = useState(false);
   
-    const [title, content] = subscribeDialogText.split('---').map(text => text.trim());
+    const [title, body] = subscribeDialogText.split('---').map(text => text.trim());
 
     const handleSubscribe = async () => {
       try {
@@ -57,7 +57,7 @@ const SubscribeDialog = ({ subscribeDialogText }) => {
         <Dialog open={open} onClose={() => setOpen(false)}>
           <DialogTitle>{title}</DialogTitle>
           <DialogContent>
-          <Typography>{content}</Typography>
+          <Typography>{body}</Typography>
             <TextField
               autoFocus
               margin="dense"
