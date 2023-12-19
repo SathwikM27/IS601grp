@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-export async function getMarkdownContent(fileName) {
+export async function getMarkdownContent(fileName, returnAsArray = false) {
   try {
     const markdownDirectory = path.join(process.cwd(), 'pages/sections');
     const fullPath = path.join(markdownDirectory, `${fileName}.md`);
@@ -16,6 +16,28 @@ export async function getMarkdownContent(fileName) {
     }
 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+    if (returnAsArray) {
+        // Split the content by triple dashes '---' and filter out empty strings
+        const rawSections = fileContents.split(/(?=^---)/gm).filter(Boolean);
+        const reviews = [];
+  
+        for (let i = 0; i < rawSections.length; i += 2) {
+          const metaData = rawSections[i] || '';
+          const reviewText = rawSections[i + 1] || '';
+  
+          const combinedContent = `${metaData}\n${reviewText}`;
+          const { data, content } = matter(combinedContent);
+  
+          reviews.push({
+            author: data.author,
+            rating: data.rating,
+            text: content.trim(),
+          });
+        }
+  
+        return reviews;
+      } 
     const matterResult = matter(fileContents);
     const processedContent = await remark().use(html).process(matterResult.content);
     return processedContent.toString();
