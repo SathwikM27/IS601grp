@@ -12,7 +12,7 @@ const theme = createTheme({
     secondary: {
       // Define your secondary color (used in your button)
       main: '#19857b',
-      gold: '#FFD700',
+      gold: '#E0CD67',
     },
     // Add other colors as needed
   },
