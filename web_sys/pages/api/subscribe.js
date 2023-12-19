@@ -8,9 +8,6 @@ export default async function handler(req, res) {
     }
   
     try {
-      const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
-      const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
-      const SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX;
   
       const data = {
         email_address: email,
@@ -18,12 +15,12 @@ export default async function handler(req, res) {
       };
   
       const response = await fetch(
-        `https://${SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members/`,
+        `https://us21.api.mailchimp.com/3.0/lists/41a27cefb9/members/`,
         {
           body: JSON.stringify(data),
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `apikey ${MAILCHIMP_API_KEY}`,
+            Authorization: `apikey 5f21c2aeb2f125c9c7e8c992a4ee75ad-us21`,
           },
           method: 'POST',
         }
