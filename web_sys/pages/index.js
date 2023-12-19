@@ -2,13 +2,15 @@ import React from 'react';
 import { getMarkdownContent } from '../lib/pages';
 import MainPageContent from '../components/MainPageContent';
 import ResponsiveAppBar from '../components/ResponsiveAppBar';
+import AboutUsSection from '@/components/AboutUsSection';
 
-const YourPage = ({ mainPageContent }) => {
+const YourPage = ({ mainPageContent, aboutUsContent }) => {
   // Render the main page with the content passed as a prop
   return (
     <div>
       <MainPageContent content={mainPageContent} />
       <ResponsiveAppBar />
+      <AboutUsSection content={aboutUsContent} />
       {/* ...other components... */}
     </div>
   );
@@ -16,10 +18,11 @@ const YourPage = ({ mainPageContent }) => {
 
 export async function getStaticProps() {
   const mainPageContent = await getMarkdownContent('main-page-content');
-  console.log("index.js props", mainPageContent);
+  const aboutUsContent = await getMarkdownContent('about-us');
   return {
     props: {
       mainPageContent,
+        aboutUsContent,
     },
   };
 }
