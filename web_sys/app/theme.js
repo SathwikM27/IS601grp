@@ -26,6 +26,7 @@ const theme = createTheme({
       fontWeight: 400,
       // Add other styles as needed
     },
+   
     // Define other typography variants as needed
   },
   // You can also customize components globally

@@ -1,3 +1,3 @@
-# Re-invented Chinese
+# Dragon's Breath
 
-Sichuan Spice
+Re-invented Chinese
