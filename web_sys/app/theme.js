@@ -5,6 +5,7 @@ const theme = createTheme({
     primary: {
       // Define your primary color here
       main: '#FFFFFF',
+      
     },
     secondary: {
       // Define your secondary color (used in your button)
