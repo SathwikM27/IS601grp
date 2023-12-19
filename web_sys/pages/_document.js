@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en"> {/* Add whichever language you want here */}
       <Head />
-      <body>
+      <body style={{margin: 0}}>
         <Main />
         <NextScript />
       </body>
