@@ -7,7 +7,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 function ResponsiveAppBar() {
   const theme = useTheme();
-  console.log("ResponsiveAppBar.js theme", theme);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   // Add or modify the sections here
